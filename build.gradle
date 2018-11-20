@@ -21,14 +21,19 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+    testCompile("org.mockito:mockito-core:2.+")
 }
 
 bootRun.environment([
         "WELCOME_MESSAGE": "hello from build",
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
 ])
