@@ -16,9 +16,6 @@ plugins {
 
 apply plugin: 'org.springframework.boot'
 
-group 'com.accenture'
-version '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
     jcenter()
@@ -31,7 +28,7 @@ dependencies {
 }
 
 bootRun.environment([
-        "WELCOME_MESSAGE": "hello from build",
+        "WELCOME_MESSAGE": "Hello from build",
 ])
 
 test.environment([

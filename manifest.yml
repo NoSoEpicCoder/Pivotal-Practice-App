@@ -1,8 +1,9 @@
 ---
 applications:
-  -name: pal-pratice-application
-  path: build/libs/pal-practice-application.jar
-    random-route: true
+  -name: pal-practice-application
+   path: build/libs/pal-practice-application.jar
+   routes:
+    - route: accenture-pal-tracker.cfapps.io
     env:
     WELCOME_MESSAGE: Hello from inside the cloud foundry app
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
