@@ -33,7 +33,7 @@ public class TimeEntryController {
 
     @GetMapping
     public ResponseEntity<List<TimeEntry>> list() {
-        List<TimeEntry> timeEntries = (List<TimeEntry>) timeEntryRepository.list();
+        List<TimeEntry> timeEntries = timeEntryRepository.list();
         return ResponseEntity.status(HttpStatus.OK).body(timeEntries);
     }
 

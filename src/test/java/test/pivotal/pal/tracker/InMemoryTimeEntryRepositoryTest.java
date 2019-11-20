@@ -3,10 +3,8 @@ package test.pivotal.pal.tracker;
 import com.accenture.InMemoryTimeEntryRepository;
 import com.accenture.TimeEntry;
 import org.junit.Test;
-
 import java.time.LocalDate;
 import java.util.List;
-
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
