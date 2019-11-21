@@ -1,5 +1,8 @@
 package com.accenture;
 
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.DistributionSummary;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,10 +12,14 @@ import java.util.List;
 @RequestMapping("/time-entries")
 public class TimeEntryController {
 
-    TimeEntryRepository timeEntryRepository;
+    private TimeEntryRepository timeEntryRepository;
+    private final DistributionSummary distributionSummary;
+    private final Counter counter;
 
-    public TimeEntryController(TimeEntryRepository timeEntryRepository) {
+    public TimeEntryController(TimeEntryRepository timeEntryRepository, MeterRegistry meterRegistry) {
         this.timeEntryRepository = timeEntryRepository;
+        distributionSummary = meterRegistry.summary("timeEntry.summary");
+        counter = meterRegistry.counter("timeEntry.counter");
     }
 
     @PostMapping
